@@ -223,16 +223,16 @@
 </wools>
 <beacons>
 	<!--Woolroom Beacons-->
-	<beacon location="-287.5,2,-1498.5" color="magenta" particle-count="200"/>
-	<beacon location="-287.5,2,-1336.5" color="cyan" particle-count="200"/>
-	<beacon location="-368.5,2,-1417.5" color="lime" particle-count="200"/>
-	<beacon location="-206.5,2,-1417.5" color="orange" particle-count="200"/>	
+	<beacon location="-287.5,28,-1498.5" color="magenta" particle-count="50"/>
+	<beacon location="-287.5,28,-1336.5" color="cyan" particle-count="50"/>
+	<beacon location="-368.5,28,-1417.5" color="lime" particle-count="50"/>
+	<beacon location="-206.5,28,-1417.5" color="orange" particle-count="50"/>	
 	
 	<!--Monument Beacons-->
-	<beacon location="-335.5,22,-1468.5" particle-count="180" visibility-filter="only-magenta"/>
-	<beacon location="-338.5,22,1369.5" particle-count="180" visibility-filter="only-cyan"/>
-	<beacon location="-239.5,22,-1366.5" particle-count="180" visibility-filter="only-lime"/>
-	<beacon location="-236.5,22,-1465.5" particle-count="180" visibility-filter="only-orange"/>	
+	<beacon location="-335.5,25,-1468.5" particle-count="40" visibility-filter="only-magenta"/>
+	<beacon location="-338.5,25,1369.5" particle-count="40" visibility-filter="only-cyan"/>
+	<beacon location="-239.5,25,-1366.5" particle-count="40" visibility-filter="only-lime"/>
+	<beacon location="-236.5,25,-1465.5" particle-count="40" visibility-filter="only-orange"/>	
 </beacons>
 <kill-rewards>
 	<!--Standard Rewards-->
