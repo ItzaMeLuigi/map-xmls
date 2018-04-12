@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<map proto="1.4.2">
+<name>Zoic</name>
+<version>1.0.0</version>
+<objective>Capture the enemies wool and return it to your base.</objective>
+<authors>
+    <author uuid="f066a092-d825-4316-bc9a-5f8ddd21b167"/> <!-- Vaalky -->
+</authors>
+<contributors>
+	<contributor uuid="037d948e-4bbb-441f-8a59-068ab65af822" contribution="XML help"/> <!-- Tigo -->
+</contributors>
+<teams>
+    <team id="red-team" color="dark red" max="5">Red</team>
+    <team id="blue-team" color="blue" max="5">Blue</team>
+</teams>
+<spawns>
+	<spawn team="blue-team" kit="blue-kit">
+		<regions yaw="-90">
+			<point>-716,88,477</point> 
+		</regions>
+	</spawn> 
+	<spawn team="red-team" kit="red-kit">
+		<regions yaw="90">
+			<point>-685,88,334</point> 
+		</regions>
+	</spawn>
+	<default yaw="90">
+		<regions>
+			<point>-700.5,34,405.5</point>
+		</regions>
+	</default>
+</spawns>
+<respawn delay="2s" auto="true" blackout="true"/>
+<kits>
+    <kit id="blue-kit">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="20">arrow</item>
+        <item slot="2"  unbreakable="true" enchantment="dig speed:1">wood pickaxe</item>
+        <item slot="3"  unbreakable="true" enchantment="dig speed:2">iron axe</item>
+        <item slot="4" amount="64">golden carrot</item>
+        <item slot="5" amount="24">end bricks</item>
+		<item slot="6" amount="8">wood</item>
+		<potion amplifier="3" duration="5">damage resistance</potion>
+		<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+		<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+		<leggings unbreakable="true" enchantment="protection projectile:1">chainmail leggings</leggings>
+		<boots color="0066cc" unbreakable="true">leather boots</boots>
+    </kit>
+	<kit id="red-kit">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="20">arrow</item>
+        <item slot="2"  unbreakable="true" enchantment="dig speed:1">wood pickaxe</item>
+        <item slot="3"  unbreakable="true" enchantment="dig speed:2">iron axe</item>
+        <item slot="4" amount="64">golden carrot</item>
+        <item slot="5" amount="24">end bricks</item>
+        <item slot="6" amount="8">wood</item>
+		<potion amplifier="3" duration="5">damage resistance</potion>
+		<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+		<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+		<leggings enchantment="protection projectile:1" unbreakable="true">chainmail leggings</leggings>
+		<boots color="cd0000" unbreakable="true">leather boots</boots>
+    </kit>
+	<kit id="obs">
+		<effect duration="oo">night vision</effect>
+	</kit>
+</kits>
+<wools wool-proximity-metric="closest kill"  wool-proximity-horizontal="true">
+	<wool team="red-team" color="cyan" location="-700,23,476">
+		<monument><block>-706,13,334</block></monument>
+	</wool>
+	<wool team="blue-team" color="orange" location="-702,23,334">
+		<monument><block>-696,13,476</block></monument>
+	</wool>
+</wools>
+<toolrepair>
+	<tool>stone sword</tool>
+	<tool>bow</tool>
+</toolrepair>
+<itemremove>
+	<item>wood pickaxe</item>
+	<item>iron axe</item>
+	<item>chainmail chestplate</item>
+	<item>purpur block</item>
+	<item>purpur pillar</item>
+	<item>purpur stairs</item>
+	<item>purpur slab</item>
+	<item>birch fence</item>
+	<item>ender stone</item>
+	<item>end bricks</item>
+	<item>wood</item>
+    <item>leather helmet</item>
+	<item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>	
+</itemremove>
+<filters>
+	<!-- Team filters -->
+	<team id="only-blue">blue-team</team>
+	<team id="only-red">red-team</team>
+	<!-- Block filters -->
+	<not id="deny-void">
+		<void/>
+	</not>	
+	<!-- Woolroom Filters-->
+	<all id="only-blue-woolrooms">
+		<team>blue-team</team>
+		<material>birch fence</material>
+	</all>
+	<all id="only-red-woolrooms">
+		<team>red-team</team>
+		<material>birch fence</material>
+	</all>
+	<material id="only-fence">birch fence</material>
+	<!--No Spawners-->
+    <all id="no-spawners">
+        <not>
+            <any>
+                <material>mob spawner</material>
+                <material>gold plate</material>
+            </any>
+        </not>
+    </all>
+</filters>
+<regions>
+	<!--Woolrooms -->
+	<union id="blue-woolroom">
+		<cuboid min="-695,32,471" max="-703,22,484" />
+		<cuboid min="-703,22,484" max="-695,0,480" />
+		<cuboid min="-695,0,480" max="-703,8,474" />
+	</union>
+	<union id="red-woolroom">
+		<cuboid min="-706,32,340" max="-698,22,327" />
+		<cuboid min="-698,22,327" max="-706,0,331" />
+		<cuboid min="-706,0,331" max="-698,8,337" />
+	</union>
+	<union id="droptubes">
+		<cuboid id="redtube" min="-700,0,347" max="-704,21,343" />
+		<cuboid id="bluetube" min="-697,0,468" max="-701,21,464" />
+	</union>
+	<!--Spawners-->
+	<union id="spawners">
+        <cuboid min="-689,11,374" max="-690,12,375"/>
+        <cuboid min="-712,11,393" max="-713,12,394"/>	
+        <cuboid min="-700,11,405" max="-701,12,406"/>	
+        <cuboid min="-711,11,436" max="-712,12,437"/>	
+        <cuboid min="-688,11,417" max="-689,12,418"/>
+	</union>
+	<!--Spawns-->
+	<union id="spawns">
+		<cuboid id="blue-spawn" min="-706,23,331" max="-681,7,338"/>
+		<cuboid id="red-spawn" min="-695,23,480" max="-720,7,473"/>
+	</union>
+	<!-- Portal Regions-->
+	<cuboid id="redportal" min="-700,1,350" max="-704,4,349"/>
+	<cuboid id="blueportal" min="-701,1,461" max="-697,4,462"/>	
+	<!--Applys-->
+	<!--Spawn-->
+	<apply block="never" region="spawns" message="You may not place blocks in spawn!"/>	
+	<apply enter="only-blue" region="red-spawn"  message="You may not enter the other teams spawn!"/>
+	<apply enter="only-red" region="blue-spawn"  message="You may not enter the other teams spawn!"/>	
+	<!--Woolrooms-->
+	<apply enter="only-blue" region="red-woolroom" message="You may not enter your own woolroom" />
+	<apply enter="only-red" region="blue-woolroom" message="You may not enter your own woolroom" />
+	<apply block="only-red-woolrooms" region="blue-woolroom" message="Only Red may edit fences here!" />
+	<apply block="only-blue-woolrooms" region="red-woolroom" message="Only Blue may edit fences here!" />		
+	<apply block="only-fence" message="You have reached the maximum build height (`b21`c blocks)">
+        <region>
+			<cuboid min="oo,21,oo" max="-oo,35,-oo"/>
+		</region>
+    </apply>
+	<!--Miscs + Void-->
+	<apply block="never" region="droptubes" message="You may not block off the droptubes!" />
+	<apply block="never" enter="only-red" region="redportal"/>
+	<apply block="never" enter="only-blue" region="blueportal"/>
+    <apply block="no-spawners" region="spawners" message="You may not edit the spawners."/>
+	<apply block="deny-void" message="You may not modify blocks in the void!">
+		<region>
+			<everywhere/>
+		</region>
+    </apply>
+</regions>
+<!--Portal-->
+<portals>
+    <portal filter="only-red" x="@-702" y="@18" z="@333" yaw="0">
+		<region>
+			<cuboid min="-700,1,350" max="-704,4,349"/>
+		</region>
+    </portal>
+	<portal filter="only-blue" x="@-699" y="@18" z="@478" yaw="0">
+		<region>
+			<cuboid min="-701,1,461" max="-697,4,462"/>
+		</region>
+    </portal>
+</portals>
+<!--Kill Rewards+Misc-->
+<killreward>
+	<item>golden apple</item>
+	<item amount="12">arrow</item>
+	<item amount="8">end bricks</item>
+</killreward>
+<gamerules>
+    <doFireTick>false</doFireTick>
+	<doDaylightCycle>false</doDaylightCycle>
+</gamerules>
+<timelock>on</timelock>
+<time result="objectives">20m</time>
+</map>

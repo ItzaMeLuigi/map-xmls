@@ -1,0 +1,344 @@
+<map proto="1.4.2">
+<name>Linked</name>
+<version>1.0.0</version>
+<objective>Gain 2 points by capturing the points to turn the monuments to endstone! Then destroy them for 1 each!</objective>
+<authors>
+		<author uuid="bbfac3db-dd46-4996-b936-0e2432f33285"/><!-- Valky-->
+		<author uuid="ffffec3a-728a-485a-af6e-374e86883939"/><!-- Jeremy_Wade-->
+		<author uuid="be280357-73fe-465c-a342-2bf0357327c4"/><!-- Naatz-->	
+</authors>
+<contributors>
+	<contributor contribution="WE help">Obelistics</contributor>
+</contributors>
+<teams>
+	<team id="red-team" color="dark red" max="18" max-overfill="22">Red</team>
+	<team id="blue-team" color="blue" max="18" max-overfill="22">Blue</team>
+</teams>
+<broadcasts>
+	<alert after="2s" every="30s">You can only use blocks in the areas marked with cobwebs!</alert>
+	<tip after="2s" every="60s">Capped points activate advanced spawns!</tip>
+	<tip after="2s" every="60s">Cap a sides point to be able to brige on that side + to break the monument!</tip>
+</broadcasts>
+<gamemode>koth</gamemode>
+<respawn delay="3s" auto="false"/>
+<kits>
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true">stone sword</item>
+	<item slot="1" unbreakable="true">bow</item>
+	<item slot="28" amount="16">arrow</item>
+	<item slot="2" enchantment="unbreaking:3" unbreakable="true">wood pickaxe</item>
+	<item slot="8" amount="36">sandstone</item>
+	<potion duration="3" amplifier="4">heal</potion>
+	<potion duration="3" amplifier="4">damage resistance</potion>
+	<potion duration="oo">night vision</potion>
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+</kit>
+<kit id="red" parents="spawn">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<regions>
+	<!-- Block Usage-->
+    <union id="buildable-areas">
+        <cuboid id="redeast1" min="16,20,113" max="29,29,65" />
+        <cuboid id="redeast2" min="29,19,79" max="16,20,99" />
+        <cuboid id="redwest1" min="-24,20,113" max="-11,29,65" />
+        <cuboid id="redwest2" min="-24,19,79" max="-11,20,99" />		        
+		<cuboid id="redmid" min="5,9,104" max="0,10,92" />
+        <cuboid id="blueeast1" min="16,20,138" max="29,29,186" />
+        <cuboid id="blueeast2" min="29,19,172" max="16,20,152" />
+        <cuboid id="bluewest1" min="-11,20,138" max="-24,29,186" />
+        <cuboid id="bluewest2" min="-24,19,172" max="-11,20,152" />	
+		<cuboid id="bluemid" min="5,9,147" max="0,10,159" />
+    </union>
+	<union id="jumppad-areas">
+		<cuboid id="redeast" min="25,20,104" max="20,29,109" />
+		<cuboid id="redwest" min="-20,20,104" max="-15,29,109" />
+		<cuboid id="blueeast" min="25,20,147" max="20,29,142" />
+		<cuboid id="bluewest" min="-20,20,147" max="-15,29,142" />		
+	</union>
+	<!-- Jumppads-->
+	<union id="low-jumppadseast">
+		<cuboid id="redeastpad" min="17,3,89" max="14,4.5,92" />	
+		<cuboid id="blueeastpad" min="17,3,162" max="14,4.5,159" />			
+	</union>
+	<union id="low-jumppadswest">
+		<cuboid id="redwestpad" min="-12,3,89" max="-9,4.5,92" />	
+		<cuboid id="bluewestpad" min="-12,3,159" max="-9,4.5,162" />			
+	</union>
+	<union id="bluehigh-jumppads">
+		<cuboid id="bluemideastpad" min="24,10,143" max="21,11.5,146" />
+		<cuboid id="bluemidmidpad" min="4,10,140" max="1,11.5,143" />
+		<cuboid id="bluemidwestpad" min="-16,10,143" max="-19,11.5,146" />
+		<cuboid id="bluemonueastpad" min="15,9,174" max="12,10.5,177" />		
+		<cuboid id="bluemonuwestpad" min="-7,9,174" max="-10,10.5,177" />
+		<cuboid id="bluespawneastpad" min="24,9,187" max="21,10.5,190" />
+		<cuboid id="bluespawnwestpad" min="-16,9,187" max="-19,10.5,190" />		
+	</union>
+	<union id="redhigh-jumppads">
+		<cuboid id="redmideastpad" min="21,10,108" max="24,11.5,105" />
+		<cuboid id="redmidmidpad" min="1,10,111" max="4,11.5,108" />
+		<cuboid id="redmidwestpad" min="-19,10,108" max="-16,11.5,105" />
+		<cuboid id="redmonueastpad" min="12,9,77" max="15,10.5,74" />		
+		<cuboid id="redmonuwestpad" min="-10,9,77" max="-7,10.5,74" />
+		<cuboid id="redspawneastpad" min="21,9,64" max="24,10.5,61" />
+		<cuboid id="redspawnwestpad" min="-19,9,64" max="-16,10.5,61" />		
+	</union>
+	<union id="mid-jumppads">
+		<cuboid id="mideastpad" min="33,1,124" max="30,2.5,127" />
+		<cuboid id="midwestpad" min="-25,1,124" max="-28,2.5,127" />		
+	</union>	
+	<!-- Monument Regions-->
+	<cuboid id="redeastmonuregion" min="21,27,70" max="24,22,73" />
+	<cuboid id="redwestmonuregion" min="-19,27,70" max="-16,22,73" />
+	<cuboid id="blueeastmonuregion" min="25,27,181" max="21,22,178" />
+	<cuboid id="bluewestmonuregion" min="-16,27,181" max="-19,22,178" />	
+	<!-- Monument Platforms-->
+	<union id="bluewestmonuplat">
+		<cuboid min="-24,20,187" max="-11,30,152" />
+        <cuboid min="-24,19,172" max="-11,20,152" />			
+	</union>
+	<union id="blueeastmonuplat">
+		<cuboid min="29,20,187" max="15,30,152" />
+        <cuboid min="29,19,172" max="16,20,152" />		
+	</union>
+	<union id="redwestmonuplat">
+		<cuboid min="-24,20,64" max="-11,30,99" />
+        <cuboid min="-24,19,79" max="-11,20,99" />		
+	</union>
+	<union id="redeastmonuplat">
+		<cuboid min="16,20,64" max="29,30,99" />
+        <cuboid min="29,19,79" max="16,20,99" />		
+	</union>
+	
+	<!--Monument Applys-->		
+	<apply region="bluewestmonuplat" block-break="redNoWestPlat" block-place="redNoWestPlat"  message="Cap this side's point first!" />
+	<apply region="blueeastmonuplat" block-break="redNoEastPlat" block-place="redNoEastPlat"  message="Cap this side's point first!" />
+	<apply region="redwestmonuplat" block-break="blueNoWestPlat" block-place="blueNoWestPlat"  message="Cap this side's point first!" /> 
+	<apply region="redeastmonuplat" block-break="blueNoEastPlat" block-place="blueNoEastPlat" message="Cap this side's point first!" />	
+	<!--Block Applys-->
+	<apply region="jumppad-areas" block="never"/>	
+    <apply region="buildable-areas" block="always"/>
+	<apply block="never" message="You may not break/place blocks here!">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>
+	<!--Jumppads-->
+	<apply region="low-jumppadseast" velocity="-0.5,1.2,0.0" />	
+	<apply region="low-jumppadswest" velocity="0.5,1.2,0.0" />
+	<apply region="bluehigh-jumppads" velocity="0.0,1.5,0.0" />	
+	<apply region="redhigh-jumppads" velocity="0.0,1.5,0.0" />	
+	<apply region="mid-jumppads" velocity="0.0,1.5,0.0" />	
+	<!--Beacon Apply-->
+	<apply use="no-beacons">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>		
+</regions>
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions yaw="0">
+		<cylinder base="2.5,15,33.5" radius="0.5" height="0.5"/>
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions yaw="180">
+		<cylinder base="2.5,15,217.5" radius="0.5" height="0.5"/>
+	</regions >
+</spawn>
+<default kit="obs">
+	<regions yaw="180">
+		<cuboid min="3.5,48,124.5" max="1.5,48,126.5"/>
+	</regions>
+</default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+	
+	<!--Monument Filters-->
+	<any id="blueNoWestPlat">
+		<team>red-team</team>
+		<all>
+			<team>blue-team</team>
+			<captured team="blue-team">west-point</captured>
+		</all>
+	</any>
+	<any id="blueNoEastPlat">
+		<team>red-team</team>
+		<all>
+			<team>blue-team</team>
+			<captured team="blue-team">east-point</captured>
+		</all>
+	</any>
+
+	<any id="redNoWestPlat">
+		<team>blue-team</team>
+		<all>
+			<team>red-team</team>
+			<captured team="red-team">west-point</captured>
+		</all>
+	</any>
+	<any id="redNoEastPlat">
+		<team>blue-team</team>
+		<all>
+			<team>red-team</team>
+			<captured team="red-team">east-point</captured>
+		</all>
+	</any>
+
+	<!--Portal Filters-->
+	<all id="blueWestPortal">
+        <captured team="blue-team">west-point</captured>
+        <not>
+            <any>
+                <captured>east-point</captured>
+            </any>
+        </not>
+    </all>
+
+	<all id="blueEastPortal">
+        <captured team="blue-team">east-point</captured>
+        <not>
+            <any>
+                <captured>west-point</captured>
+            </any>
+        </not>
+    </all>
+	
+	<all id="blueAllPortal">
+        <captured team="blue-team">west-point</captured>
+        <captured team="blue-team">east-point</captured>
+    </all>	
+	
+	<all id="redWestPortal">
+        <captured team="red-team">west-point</captured>
+        <not>
+            <any>
+                <captured>east-point</captured>
+            </any>
+        </not>
+    </all>
+
+	<all id="redEastPortal">
+        <captured team="red-team">east-point</captured>
+        <not>
+            <any>
+                <captured>west-point</captured>
+            </any>
+        </not>
+    </all>
+	
+	<all id="redAllPortal">
+        <captured team="red-team">west-point</captured>
+        <captured team="red-team">east-point</captured>
+    </all>	
+	
+	<!--Disable Beacons-->
+	<all id="no-beacons">
+		<not>
+			<material>beacon</material>
+		</not>
+	</all>
+</filters>
+<portals>
+    <!-- Red Portals -->
+    <portal x="@-20" y="@4" z="@88" yaw="@0" filter="redWestPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    <portal x="@25" y="@4" z="@88" yaw="@0" filter="redEastPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    <portal x="@2.5" y="@10" z="@85.5" yaw="@0" filter="redAllPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    
+    <!-- Blue Portals -->
+    <portal x="@-20" y="@4" z="@163" yaw="@180" filter="blueWestPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+    <portal x="@25" y="@4" z="@163" yaw="@180" filter="blueEastPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+    <portal x="@2.5" y="@10" z="@165.5" yaw="@180" filter="blueAllPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+</portals>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>arrow</item>
+	<item>golden apple</item>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+	<item>ender stone</item>
+	<item>sandstone</item>
+</itemremove>
+<killreward>
+	<item amount="1">golden apple</item>
+	<item amount="12">arrow</item>
+	<item amount="8">sandstone</item>
+</killreward>
+<!--Monuments-->
+<destroyables>
+	<destroyable id="redeastmonu" name="East Monument" owner="red-team" sparks="true" region="redeastmonuregion" required="true" material="ender stone" />
+	<destroyable id="redwestmonu" name="West Monument" owner="red-team" sparks="true" region="redwestmonuregion" required="true" material="ender stone" />
+	<destroyable id="blueeastmonu" name="East Monument" owner="blue-team" sparks="true" region="blueeastmonuregion" required="true" material="ender stone" />
+	<destroyable id="bluewestmonu" name="West Monument" owner="blue-team" sparks="true" region="bluewestmonuregion" required="true" material="ender stone" />
+</destroyables>
+<!--Points-->
+<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
+<control-point id="east-point" name="East Point" capture-time="8s" points="0">
+	<capture-region>
+		<cuboid min="27,0,130" max="18,2,121"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="27,0,130" max="18,2,121"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="16,0,119" max="37,32,132"/>
+		<cuboid min="22,33,125" max="23,32,126"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="west-point" name="West Point" capture-time="8s" points="0">
+	<capture-region>
+		<cuboid min="-22,0,121" max="-13,2,130"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-22,0,121" max="-13,2,130"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-32,0,119" max="-11,32,132"/>
+		<cuboid min="-18,33,126" max="-17,32,125"/>				
+	</owner-display-region>
+</control-point>
+</control-points>
+<!--Miscs-->
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+	<damage>fall</damage>
+</disabledamage>
+</map>

@@ -1,0 +1,101 @@
+<map proto="1.4.2">
+<name>Rush</name>
+<version>1.0.4</version>
+<objective>Destroy the enemies bed and kill them!</objective>
+<authors>
+    <author>Xisuma</author>
+</authors>
+<contributors>
+    <contributor uuid="bbfac3db-dd46-4996-b936-0e2432f33285" contribution="XML"/> <!-- Valkyh -->
+</contributors>
+<teams>
+    <team id="blue-team" color="blue" max="5">Blue</team>
+    <team id="orange-team" color="gold" max="5">Orange</team>
+</teams>
+<spawns>
+	<default>
+		<region yaw="90">
+			<point>0,100,0</point>
+		</region>
+	</default>
+	<spawn team="orange-team" yaw="180" filter="orange-bed-broken">
+		<region>
+			<point>-1.5,53,62.5</point>
+		</region>
+	</spawn>
+	<spawn team="blue-team" yaw="0" filter="blue-bed-broken">
+		<region>
+			<point>-1.5,53,-63.5</point>
+		</region>
+	</spawn>
+</spawns>
+<regions>
+	<union id="noglowstonebreak">
+		<cuboid min="-1,52,-63" max="-2,53,-62"/>
+		<cuboid min="5,53,-66" max="4,54,-65"/>
+		<cuboid min="3,53,-66" max="2,54,-65"/>
+		<cuboid min="-5,53,-66" max="-6,54,-65"/>	
+		<cuboid min="-7,53,-66" max="-8,54,-65"/>
+		
+		<cuboid min="-2,52,62" max="-1,53,61"/>	
+		<cuboid min="-8,53,65" max="-7,54,64"/>	
+		<cuboid min="-6,53,65" max="-5,54,64"/>		
+		<cuboid min="2,53,65" max="3,54,64"/>	
+		<cuboid min="4,53,65" max="5,54,64"/>		
+	</union>
+	
+	<union id="spawner-regions">
+		<cuboid min="1,53,64" max="-3,57,69"/>
+		<cuboid min="-4,53,-65" max="1,57,-70"/>
+	</union>
+	
+	<cuboid id="blue-bed-region" min="-1,53,-62" max="-2,54,-60"/>
+	<cuboid id="orange-bed-region" min="-2,53,61" max="-1,54,59"/>	
+	
+	<apply block="never" region="noglowstonebreak" message="You may not break the base!" />	
+	<apply block="never" region="spawner-regions" message="You may not block the resources!"/>
+	<apply block="no-obsidian" message="You may not break the base!">
+		<region>
+			<everywhere/>
+		</region>
+	</apply>
+</regions>
+<filters>
+	<not id="no-obsidian">
+		<material>obsidian</material>
+	</not>
+	<not id="blue-bed-broken">
+		<all>
+			<team>blue-team</team>
+			<completed>blue-bed</completed>
+		</all>
+	</not>
+	<not id="orange-bed-broken">
+		<all>
+			<team>orange-team</team>
+			<completed>orange-bed</completed>
+		</all>
+	</not>
+</filters>
+<destroyables>
+	<destroyable id="blue-bed" name="Blue's Bed" region="blue-bed-region" owner="blue-team" required="false" materials="bed block" completion="50%"/>
+	<destroyable id="orange-bed" name="Orange's Bed" region="orange-bed-region" owner="orange-team" required="false" materials="bed block" completion="50%"/>		
+</destroyables>
+<control-points>
+	<control-point id="win-point" name="Win!" required="true" capture-time="10s" show-progress="true">
+		<capture>
+			<everywhere/>
+		</capture>
+	</control-point>
+</control-points>
+<crafting>
+	<disable>gold plate</disable>
+	<disable>iron plate</disable>
+	<disable>iron trapdoor</disable>
+	<disable>brick</disable>
+</crafting>
+<itemremove>
+	<item>bed</item>
+</itemremove>
+<respawn auto="true" delay="3.5s" blackout="true"/>
+</map>

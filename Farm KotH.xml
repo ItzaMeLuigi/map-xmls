@@ -1,0 +1,147 @@
+<map proto="1.4.2">
+<name>Farm KotH</name>
+<version>1.0.0</version>
+<objective>Gain 2000 points to win!</objective>
+<authors>
+		<author uuid="bbfac3db-dd46-4996-b936-0e2432f33285"/><!-- Valkyh-->
+		<author uuid="0b4f8c7a-b80c-4fb1-86c8-999ef5b799be"/><!--LeoDerLastwagen-->		
+		<author uuid="ffffec3a-728a-485a-af6e-374e86883939"/><!-- Jeremy_Wade-->
+		<author uuid="be280357-73fe-465c-a342-2bf0357327c4"/><!-- Naatz-->	
+</authors>
+<teams>
+	<team id="red-team" color="dark red" max="18">Red</team>
+	<team id="blue-team" color="blue" max="18">Blue</team>
+</teams>
+<respawn delay="3s" auto="true"/>
+<kits>
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true">stone sword</item>
+	<item slot="1" unbreakable="true">bow</item>
+	<item slot="8" amount="18">arrow</item>
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+</kit>
+<kit id="red" parents="spawn">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<regions>
+	<!--Block Applys-->
+	<apply block="never">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>	
+</regions>
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions yaw="45">
+		<point>51,47,-27</point>
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions yaw="-45">
+		<point>-68,47,-27</point>
+	</regions >
+</spawn>
+<default kit="obs">
+	<regions yaw="0">
+		<cuboid min="-10,92,9" max="-7,92,12"/>
+	</regions>
+</default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+	
+	<!--Portal Filters-->
+	<all id="bluefilter">
+		<team>blue-team</team>
+		<captured team="blue-team">bluefountain</captured>
+	</all>
+	
+	<all id="redfilter">
+		<team>red-team</team>
+		<captured team="red-team">redfountain</captured>
+	</all>
+</filters>
+<portals>
+    <!-- Fountain Portals -->
+    <portal x="@22.5" y="@34" z="@1.5" yaw="@-45" filter="redfilter">
+        <region>
+            <cuboid min="52,22,-26" max="50,23,-28"/>
+        </region>
+    </portal>
+	<portal x="@-39.5" y="@34" z="@1.5" yaw="@45" filter="bluefilter">
+        <region>
+            <cuboid min="-67,22,-28" max="-69,23,-26"/>
+        </region>
+    </portal>
+</portals>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>arrow</item>
+	<item>golden apple</item>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+	<item>stone sword</item>
+	<item>bow</item>
+</itemremove>
+<killreward>
+	<item amount="1">golden apple</item>
+	<item amount="12">arrow</item>
+</killreward>
+<!--Points-->
+<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
+<control-point id="redfountain" name="Red's Fountain" capture-time="6s" points="2">
+	<capture-region>
+		<cuboid min="35,28,36" max="26,31,27"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="35,28,36" max="26,31,27"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="35,28,36" max="26,31,27"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="mid" name="Middle" capture-time="6s" points="3">
+	<capture-region>
+		<cuboid min="-4,27,15" max="-13,30,6"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-4,27,15" max="-13,30,6"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-4,27,15" max="-13,30,6"/>			
+	</owner-display-region>
+</control-point>
+<control-point id="bluefountain" name="Blue's Fountain" capture-time="6s" points="2">
+	<capture-region>
+		<cuboid min="-43,28,36" max="-52,31,27"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-43,28,36" max="-52,31,27"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-43,28,36" max="-52,31,27"/>	
+	</owner-display-region>
+</control-point>
+</control-points>
+<!--Miscs-->
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<score>
+<limit>2000</limit>
+<king/>
+</score>
+</map>

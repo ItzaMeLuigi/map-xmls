@@ -1,0 +1,292 @@
+<map proto="1.4.2">
+<name>Darquesse</name>
+<version>1.0.0</version>
+<objective>Get the most points after 12 minutes!</objective>
+<authors>
+		<author uuid="bbfac3db-dd46-4996-b936-0e2432f33285"/><!-- Valky-->
+</authors>
+<teams>
+	<team id="red-team" color="dark red" max="8">Red</team>
+	<team id="blue-team" color="blue" max="8">Blue</team>
+</teams>
+<rules>
+    <rule>Fall damage is disabled!</rule>
+    <rule>Iron tokens award 2 points!</rule>
+    <rule>Golden tokens award 4 points!</rule>
+</rules>
+<time>12m</time>
+<respawn delay="2s" auto="false"/>
+<gamemode>koth</gamemode>
+<!-- Score-->
+<score>
+    <kills>1</kills>
+    <box region="red-depot" filter="only-red">
+        <redeemables>
+            <item points="2">iron ingot</item>
+            <item points="4">gold ingot</item>
+        </redeemables>
+    </box>
+    <box region="blue-depot" filter="only-blue">
+        <redeemables>
+            <item points="2">iron ingot</item>
+            <item points="4">gold ingot</item>
+        </redeemables>
+    </box>
+</score>
+<!-- Kits-->
+<kits>
+<!-- Spawn Kits -->
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true">stone sword</item>
+	<item slot="1" unbreakable="true">bow</item>
+	<item slot="5" material="clay brick" locked="true" name="`cYou are not currently holding any tokens!" lore="`r`7Gain control of the hill, then collect tokens to gain extra points!" />
+	<item slot="8" amount="12">arrow</item>
+	<potion duration="oo">night vision</potion>
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+</kit>
+<kit id="red" parents="spawn" force="true">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn" force="true">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<!-- Token Kits-->
+<kit id="give-gold" force="true">
+    <item slot="5" locked="true" material="gold ingot" name="`aGold Token`a!" />
+    <helmet damage="1" locked="true" material="gold block" />
+</kit>
+<kit id="give-iron" force="true">
+    <item slot="5" locked="true" material="iron ingot" name="`aIron Token`a!" />
+    <helmet damage="0" locked="true" material="iron block" />
+</kit>
+<!-- Observer Kit-->
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<!-- Regions-->
+<regions>
+	<!-- Jumppad Regions -->
+	<cuboid id="bluemidpad" min="-108,5,79" max="-105,6,77" />
+	<cuboid id="redmidpad" min="-108,5,120" max="-105,6,122" />	
+	<union id="apads">	
+		<cuboid min="-103,5,62" max="-101,6,59" />		
+		<cuboid min="-103,5,140" max="-101,6,137" />		
+	</union>
+	<union id="bpads">
+		<cuboid min="-110,5,62" max="-112,6,59" />	
+		<cuboid min="-110,5,140" max="-112,6,137" />	
+	</union>
+	
+	<!--Scoreboxes-->
+	<union id="team-depots">
+        <cuboid id="red-depot" min="-104,4,143" max="-109,7,144" />
+        <cuboid id="blue-depot" min="-109,4,56" max="-104,7,55" />
+    </union>
+	
+	<!-- Token Point-->
+	<cylinder id="tokenpoint" base="-106.5,4,99.5" radius="2.5" height="2" />
+	
+	<!-- No Block Interaction-->
+	<apply block="never" message="You may not interact with blocks!">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>
+
+	<!-- Jumppads-->
+	<apply region="bluemidpad" velocity="0,0.5,-2.2"/>	
+	<apply region="redmidpad" velocity="0,0.5,2.2"/>
+	<apply region="bpads" velocity="-3,0.5,0"/>	
+	<apply region="apads" velocity="3,0.5,0"/>	
+
+	<!-- Token Applys-->
+    <apply kit="give-iron" region="tokenpoint" filter="objective-single-a" />
+    <apply kit="give-iron" region="tokenpoint" filter="objective-single-b" />
+    <apply kit="give-gold" region="tokenpoint" filter="objective-exclusive" />
+	<apply kit="red" filter="only-red">
+		<region>
+			<cuboid min="-106,7.5,138" max="-107,8,139"/>
+		</region>
+	</apply>
+	<apply kit="blue" filter="only-blue">
+		<region>
+			<cuboid min="-106,7.5,60" max="-107,8,61"/>
+		</region>
+	</apply>
+</regions>
+<!-- Spawns-->
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions>
+		<cylinder base="-105,4,157.5" radius="0.5" height="0.5" yaw="90"/>
+		<cylinder base="-108,4,157.5" radius="0.5" height="0.5" yaw="-90"/>		
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions>
+		<cylinder base="-105,4,41.5" radius="0.5" height="0.5" yaw="90"/>
+		<cylinder base="-108,4,41.5" radius="0.5" height="0.5" yaw="-90"/>
+	</regions>
+</spawn>
+<default kit="obs">
+	<regions yaw="180">
+		<cuboid min="-106,4,99" max="-107,4.5,100"/>
+	</regions>
+</default>
+</spawns>
+<!-- Filters-->
+<filters>
+	<!-- Team Filters-->
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+	
+	<!-- Token Filters-->
+    <all id="red-box">
+        <filter id="only-red" />
+        <any>
+            <wearing>
+                <item material="gold block" />
+            </wearing>
+            <wearing>
+                <item material="iron block" />
+            </wearing>
+        </any>
+    </all>
+    <all id="blue-box">
+        <filter id="only-blue" />
+        <any>
+            <wearing>
+                <item material="gold block" />
+            </wearing>
+            <wearing>
+                <item material="iron block" />
+            </wearing>
+        </any>
+    </all>
+	    <any id="objective-inclusive-b">
+        <filter id="objective-single-b" />
+        <not>
+            <any>
+                <objective team="red-team">pointb</objective>
+                <objective team="blue-team">pointb</objective>
+            </any>
+        </not>
+    </any>
+    <any id="objective-inclusive-a">
+        <filter id="objective-single-a" />
+        <not>
+            <any>
+                <objective team="red-team">pointa</objective>
+                <objective team="blue-team">pointa</objective>
+            </any>
+        </not>
+    </any>
+    <all id="objective-exclusive">
+        <objective any="false">pointa</objective>
+        <objective any="false">pointb</objective>
+    </all>
+    <objective id="objective-single-a" any="false">pointa</objective>
+    <objective id="objective-single-b" any="false">pointb</objective>
+
+	
+	<!-- Portal Filters-->
+	<not id="bluepointa">
+		<captured team="blue-team">pointa</captured>
+	</not>
+	<not id="bluepointb">
+		<captured team="blue-team">pointb</captured>
+	</not>	
+	<not id="redpointa">	
+		<captured team="red-team">pointa</captured>
+	</not>	
+	<not id="redpointb">
+		<captured team="red-team">pointb</captured>	
+	</not>	
+</filters>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>stone sword</item>
+	<item>bow</item>
+	<item>arrow</item>
+    <item>potion</item>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+</itemremove>
+<killreward>
+    <item damage="8225" potions="regeneration:80:0:false;heal:1:0:false">potion</item>
+	<item amount="6">arrow</item>
+</killreward>
+<!--Points-->
+<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
+<control-point id="pointa" name="Point A" capture-time="8s" points="0">
+	<capture-region>
+		<cuboid min="-86,9,103" max="-79,11,96"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-86,9,103" max="-79,11,96"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-86,9,103" max="-79,25,96"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="pointb" name="Point B" capture-time="8s" points="0">
+	<capture-region>
+		<cuboid min="-127,9,96" max="-134,11,103"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-127,9,96" max="-134,11,103"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-127,9,96" max="-134,25,103"/>				
+	</owner-display-region>
+</control-point>
+</control-points>
+<!-- Portal-->
+<portals>
+	<!-- Red Portals-->
+    <portal x="@-77.5" y="@4" z="@157.5" yaw="@180" filter="redpointa">
+        <region>
+            <cuboid min="-98,4,154" max="-97,7,161"/>
+        </region>
+    </portal>
+	<portal x="@-135.5" y="@4" z="@157.5" yaw="@180" filter="redpointb">
+        <region>
+            <cuboid min="-115,4,161" max="-116,7,154"/>
+        </region>
+    </portal>
+	<portal x="@-106.5" y="@8" z="@138.5" yaw="@180">
+        <region>
+            <cuboid min="-104,4,143" max="-109,7,144"/>
+        </region>
+    </portal>
+	
+	<!-- Blue Portal-->
+	<portal x="@-77.5" y="@4" z="@41.5" yaw="@0" filter="bluepointa">
+        <region>
+            <cuboid min="-98,4,38" max="-97,7,45"/>
+        </region>
+    </portal>
+	<portal x="@-135.5" y="@4" z="@41.5" yaw="@0" filter="bluepointb">
+        <region>
+            <cuboid min="-115,4,45" max="-116,7,38"/>
+        </region>
+    </portal>
+	<portal x="@-106.5" y="@8" z="@60.5" yaw="@0">
+        <region>
+            <cuboid min="-109,4,56" max="-104,7,55"/>
+        </region>
+    </portal>
+</portals>
+<!--Miscs-->
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+	<damage>fall</damage>
+</disabledamage>
+</map>

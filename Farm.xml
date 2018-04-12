@@ -1,0 +1,204 @@
+<map proto="1.4.2">
+<name>Farm</name>
+<version>1.0.0</version>
+<objective>Attackers cap all 3 Points before the timelimit is over!</objective>
+<authors>
+		<author uuid="f066a092-d825-4316-bc9a-5f8ddd21b167"/><!-- Valky-->
+		<author uuid="ffffec3a-728a-485a-af6e-374e86883939"/><!-- Jeremy_Wade-->
+		<author uuid="be280357-73fe-465c-a342-2bf0357327c4"/><!-- Naatz-->	
+</authors>
+<contributors>
+	<contributor contribution="WE help">Obelistics</contributor>
+</contributors>
+<time result="blue-team">12m</time>
+<teams>
+	<team id="red-team" color="dark red" max="5">Attackers</team>
+	<team id="blue-team" color="blue" max="5">Defenders</team>
+</teams>
+<respawn team="blue-team" delay="5s" auto="false" blackout="true"/>
+<respawn team="red-team" delay="5s" auto="false"/>
+<kits>
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true">stone sword</item>
+	<item slot="1" unbreakable="true">bow</item>
+	<item slot="28" amount="24">arrow</item>
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+</kit>
+<kit id="red" parents="spawn">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<regions>
+	<!--Block Applys-->
+	<apply block="never">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>	
+</regions>
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions yaw="-90">
+		<point>-6.5,88,10.5</point>
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions yaw="90">
+		<point>-10.5,88,10.5</point>
+	</regions >
+</spawn>
+<default kit="obs">
+	<regions yaw="90">
+		<cuboid min="-10,92,9" max="-7,92,12"/>
+	</regions>
+</default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+	
+	<!--Portal Filters-->
+	<all id="fountainportal">
+        <not>
+			<captured team="red-team">fountain</captured>
+        </not>
+    </all>
+
+	<all id="midportal">
+        <not>
+			<captured team="red-team">mid</captured>
+        </not>
+    </all>
+	
+	<all id="hillportal">
+        <not>
+			<captured team="red-team">hill</captured>
+        </not>
+    </all>
+	
+	<!--Defender Filters-->
+	<any id="hillfilter">
+	<team>red-team</team>
+		<not>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">mid</captured>
+				<captured team="blue-team">fountain</captured>
+			</all>
+		</not>
+	</any>
+	<any id="midfilter">
+	<team>red-team</team>
+		<not>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">hill</captured>
+				<captured team="blue-team">fountain</captured>
+			</all>
+		</not>
+	</any>
+	<any id="fountainfilter">
+	<team>red-team</team>
+		<not>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">mid</captured>
+				<captured team="blue-team">hill</captured>
+			</all>
+		</not>
+	</any>
+</filters>
+<portals>
+    <!-- Red Portals -->
+    <portal x="@-55" y="@21" z="@-44" yaw="@0">
+        <region>
+            <cuboid min="-4,88,6" max="-1,89,9"/>
+        </region>
+    </portal>
+    <portal x="@51" y="@48" z="@-27" yaw="@45">
+        <region>
+            <cuboid min="-4,88,12" max="-1,89,15"/>
+        </region>
+    </portal>
+    
+    <!-- Blue Portals -->
+    <portal x="@22.5" y="@34" z="@1.5" yaw="@-45" filter="fountainportal">
+        <region>
+            <cuboid min="-13,88,16" max="-16,89,13"/>
+        </region>
+    </portal>
+    <portal x="@-36" y="@39" z="@21" yaw="@-90" filter="midportal">
+        <region>
+            <cuboid min="-13,88,12" max="-16,89,9"/>
+        </region>
+    </portal>
+    <portal x="@-40" y="@39" z="@21" yaw="@0" filter="hillportal">
+        <region>
+            <cuboid min="-13,88,8" max="-16,89,5"/>
+        </region>
+    </portal>
+</portals>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>arrow</item>
+	<item>golden apple</item>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+	<item>stone sword</item>
+	<item>bow</item>
+</itemremove>
+<killreward>
+	<item amount="1">golden apple</item>
+	<item amount="12">arrow</item>
+</killreward>
+<!--Points-->
+<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.5" required="true">
+<control-point id="fountain" name="Fountain" capture-time="6s" capture-filter="fountainfilter">
+	<capture-region>
+		<cuboid min="35,28,36" max="26,30,27"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="35,28,36" max="26,30,27"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="35,28,36" max="26,30,27"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="mid" name="Mid" capture-time="6s" capture-filter="midfilter">
+	<capture-region>
+		<cuboid min="-4,27,15" max="-13,29,6"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-4,27,15" max="-13,29,6"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-4,27,15" max="-13,29,6"/>			
+	</owner-display-region>
+</control-point>
+<control-point id="hill" name="Hill" capture-time="6s" capture-filter="hillfilter">
+	<capture-region>
+		<cuboid min="-57,34,39" max="-66,36,48"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-57,34,39" max="-66,36,48"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-57,34,39" max="-66,36,48"/>			
+	</owner-display-region>
+</control-point>
+</control-points>
+<!--Miscs-->
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>

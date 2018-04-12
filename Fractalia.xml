@@ -1,0 +1,126 @@
+<map proto="1.4.2">
+<name>Fractalia</name>
+<version>1.0.0</version>
+<objective>Gain 1250 Points to win!</objective>
+<authors>
+		<author uuid="f066a092-d825-4316-bc9a-5f8ddd21b167"/><!-- Valky-->
+		<author uuid="ffffec3a-728a-485a-af6e-374e86883939"/><!-- Jeremy_Wade-->
+		<author uuid="be280357-73fe-465c-a342-2bf0357327c4"/><!-- Naatz-->
+		<author uuid="0b4f8c7a-b80c-4fb1-86c8-999ef5b799be"/><!-- Leo-->
+</authors>
+<contributors>
+	<contributor uuid="50a34639-abb3-4cf1-b182-204756c49f49" contribution="Spawnbridge Design and Feedback"/><!-- Sam-->
+	<contributor uuid="105b02c7-9004-45ed-a668-971359021f82" contribution="Feedback"/><!-- Kezugo-->
+	<contributor uuid="495e56bf-89ea-4276-a525-4ed0f2d11f4c" contribution="Feedback"/><!-- nichome-->
+	<contributor uuid="5791b1f5-7bf7-4f55-a278-79c89b2bb7fd" contribution="Feedback"/><!-- kills-->
+</contributors>
+<score>
+	<limit>1250</limit>
+</score>
+<king/>
+<teams>
+	<team id="red-team" color="dark red" max="28">Red</team>
+	<team id="blue-team" color="blue" max="28">Blue</team>
+</teams>
+<respawn delay="5s" auto="false"/>
+<kits>
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true">stone sword</item>
+	<item slot="1" unbreakable="true">bow</item>
+	<item slot="28" amount="24">arrow</item>
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+	<item slot="8" amount="32">cooked beef</item>
+</kit>
+<kit id="red" parents="spawn">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<regions>
+	<!--Block Applys-->
+	<apply block="never" message="You may not interact with blocks on this map!">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>	
+</regions>
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions yaw="180">
+		<point>-120.5,14,187.5</point>
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions yaw="0">
+		<point>-120.5,14,3.5</point>
+	</regions>
+</spawn>
+<default kit="obs">
+	<regions yaw="-90">
+		<cylinder base="-145.5,37.5,95.5" radius="2" height="2"/>	
+	</regions>
+</default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+</filters>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+	<item>stone sword</item>
+	<item>bow</item>
+	<item>cooked beef</item>
+</itemremove>
+<killreward>
+	<item amount="1">golden apple</item>
+	<item amount="12">arrow</item>
+</killreward>
+<!--Points-->
+<control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
+<control-point id="arena" name="Arena" capture-time="6s" points="1.5">
+	<capture-region>
+		<cuboid min="-114,9,100" max="-123,12,91"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-114,9,100" max="-123,12,91"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-114,9,100" max="-123,12,91"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="bluepoint" name="Blue's Side Point" capture-time="6s" points="1">
+	<capture-region>
+		<cuboid min="-76,22,30" max="-67,25,39"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-76,22,30" max="-67,25,39"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-76,22,30" max="-67,25,39"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="redpoint" name="Red's Side Point" capture-time="6s" points="1">
+	<capture-region>
+		<cuboid min="-76,22,152" max="-67,25,161"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-76,22,152" max="-67,25,161"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-76,22,152" max="-67,25,161"/>			
+	</owner-display-region>
+</control-point>
+</control-points>
+<!--Miscs-->
+</map>
