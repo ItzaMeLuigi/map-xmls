@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.4.3">
 <name>Enchanted</name>
-<version>1.2</version>
+<version>1.3</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
@@ -13,15 +13,14 @@
     <contributor uuid="be280357-73fe-465c-a342-2bf0357327c4" contribution="og map helper"/><!--Naatz-->
 </contributors>
 <broadcasts>
-	<tip after="2s" every="2m">Wool Monuments are located on top of the spawn building! Look at the beacon beam!</tip>
 	<tip after="3s" every="5m">You get 16 blocks of wood every 3 kills. Use them for defense or offense!</tip>
 	<tip after="4s" every="7m">There are rewards for Killstreak's from 5 to 50 kills!</tip>
 </broadcasts>
 <teams>
-    <team id="magenta-team" color="light purple" max="10" max-overfill="12">Magenta</team>
-    <team id="cyan-team" color="dark aqua" max="10" max-overfill="12">Cyan</team>
-    <team id="lime-team" color="green" max="10" max-overfill="12">Lime</team>
-    <team id="orange-team" color="gold" max="10" max-overfill="12">Orange</team>
+    <team id="magenta-team" color="light purple" max="8" max-overfill="10">Magenta</team>
+    <team id="cyan-team" color="dark aqua" max="8" max-overfill="10">Cyan</team>
+    <team id="lime-team" color="green" max="8" max-overfill="10">Lime</team>
+    <team id="orange-team" color="gold" max="8" max-overfill="10">Orange</team>
 </teams>
 <spawns>
 	<spawn team="magenta-team" kit="magenta-kit" yaw="-45">
@@ -179,46 +178,46 @@
 </filters>
 <wools team="magenta-team">
 	<wool color="cyan" location="-370.5,16,-1417.5">
-		<monument><block>-336,23,-1468</block></monument>
+		<monument><block>-329,12,-1464</block></monument>
 	</wool>
 	<wool color="lime" location="-287.5,16,-1334.5">
-		<monument><block>-336,23,-1469</block></monument>	
+		<monument><block>-327,12,-1465</block></monument>	
 	</wool>
 	<wool color="orange" location="-204.5,16,-1417.5">
-		<monument><block>-336,23,-1470</block></monument>	
+		<monument><block>-326,12,-1467</block></monument>	
 	</wool>
 </wools>
 <wools team="cyan-team">
 	<wool color="lime" location="-287.5,16,-1334.5">
-		<monument><block>-338,23,-1370</block></monument>	
+		<monument><block>-334,12,-1377</block></monument>	
 	</wool>
 	<wool color="orange" location="-204.5,16,-1417.5">
-		<monument><block>-339,23,-1370</block></monument>	
+		<monument><block>-335,12,-1379</block></monument>	
 	</wool>
 	<wool color="magenta" location="-287.5,16,-1500.5">
-		<monument><block>-340,23,-1370</block></monument>	
+		<monument><block>-337,12,-1380</block></monument>	
 	</wool>	
 </wools>
 <wools team="lime-team">
 	<wool color="orange" location="-204.5,16,-1417.5">
-		<monument><block>-240,23,-1368</block></monument>	
+		<monument><block>-247,12,-1372</block></monument>	
 	</wool>
 	<wool color="magenta" location="-287.5,16,-1500.5">
-		<monument><block>-240,23,-1367</block></monument>	
+		<monument><block>-249,12,-1371</block></monument>	
 	</wool>	
 	<wool color="cyan" location="-370.5,16,-1417.5">
-		<monument><block>-240,23,-1366</block></monument>	
+		<monument><block>-250,12,-1369</block></monument>	
 	</wool>
 </wools>
 <wools team="orange-team">
 	<wool color="magenta" location="-287.5,16,-1500.5">
-		<monument><block>-238,23,-1466</block></monument>	
+		<monument><block>-242,12,-1459</block></monument>	
 	</wool>	
 	<wool color="cyan" location="-370.5,16,-1417.5">
-		<monument><block>-237,23,-1466</block></monument>	
+		<monument><block>-241,12,-1457</block></monument>	
 	</wool>
 	<wool color="lime" location="-287.5,16,-1334.5">
-		<monument><block>-236,23,-1466</block></monument>	
+		<monument><block>-239,12,-1456</block></monument>	
 	</wool>
 </wools>
 <beacons>
@@ -226,13 +225,7 @@
 	<beacon location="-287.5,28,-1498.5" color="magenta" particle-count="50"/>
 	<beacon location="-287.5,28,-1336.5" color="cyan" particle-count="50"/>
 	<beacon location="-368.5,28,-1417.5" color="lime" particle-count="50"/>
-	<beacon location="-206.5,28,-1417.5" color="orange" particle-count="50"/>	
-	
-	<!--Monument Beacons-->
-	<beacon location="-335.5,25,-1468.5" particle-count="40" visibility-filter="only-magenta"/>
-	<beacon location="-338.5,25,1369.5" particle-count="40" visibility-filter="only-cyan"/>
-	<beacon location="-239.5,25,-1366.5" particle-count="40" visibility-filter="only-lime"/>
-	<beacon location="-236.5,25,-1465.5" particle-count="40" visibility-filter="only-orange"/>	
+	<beacon location="-206.5,28,-1417.5" color="orange" particle-count="50"/>		
 </beacons>
 <kill-rewards>
 	<!--Standard Rewards-->
