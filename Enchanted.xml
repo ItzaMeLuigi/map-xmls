@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<map proto="1.4.3">
+<map proto="1.4.2">
 <name>Enchanted</name>
-<version>1.4</version>
+<version>1.4.1</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
@@ -12,6 +12,9 @@
 <contributors>
     <contributor uuid="be280357-73fe-465c-a342-2bf0357327c4" contribution="og map helper"/><!--Naatz-->
 </contributors>
+<rules>
+    <rule>Cross teaming is allowed on this map.</rule>
+</rules>
 <broadcasts>
 	<tip after="3s" every="5m">You get 16 blocks of wood every 3 kills. Use them for defense or offense!</tip>
 	<tip after="4s" every="7m">There are rewards for Killstreak's from 5 to 50 kills!</tip>
@@ -299,13 +302,14 @@
 		<monument><block>-239,12,-1456</block></monument>	
 	</wool>
 </wools>
+<!--
 <beacons>
-	<!--Woolroom Beacons-->
 	<beacon location="-287.5,28,-1498.5" color="magenta" particle-count="50"/>
 	<beacon location="-287.5,28,-1336.5" color="lime" particle-count="50"/>
 	<beacon location="-368.5,28,-1417.5" color="cyan" particle-count="50"/>
 	<beacon location="-206.5,28,-1417.5" color="orange" particle-count="50"/>		
 </beacons>
+-->
 <kill-rewards>
 	<!--Standard Rewards-->
 	<kill-reward>
