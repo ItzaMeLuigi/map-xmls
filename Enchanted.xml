@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.4.3">
 <name>Enchanted</name>
-<version>1.3</version>
+<version>1.4</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
