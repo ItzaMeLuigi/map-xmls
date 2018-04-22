@@ -154,7 +154,6 @@
 	</kit>
 	<kit id="wool-gear" force="true">
 		<chestplate unbreakable="true">diamond chestplate</chestplate>
-        <potion duration="oo">speed</potion>
         <potion duration="oo">regeneration</potion>		
 	</kit>
 </kits>
@@ -296,14 +295,6 @@
 		<monument><block>-239,12,-1456</block></monument>	
 	</wool>
 </wools>
-<!--
-<beacons>
-	<beacon location="-287.5,28,-1498.5" color="magenta" particle-count="50"/>
-	<beacon location="-287.5,28,-1336.5" color="lime" particle-count="50"/>
-	<beacon location="-368.5,28,-1417.5" color="cyan" particle-count="50"/>
-	<beacon location="-206.5,28,-1417.5" color="orange" particle-count="50"/>		
-</beacons>
--->
 <kill-rewards>
 	<!--Standard Rewards-->
 	<kill-reward>
