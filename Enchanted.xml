@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.4.2">
 <name>Enchanted</name>
-<version>1.4.1</version>
+<version>1.4.2</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
@@ -20,10 +20,10 @@
 	<tip after="4s" every="7m">There are rewards for Killstreak's from 5 to 50 kills!</tip>
 </broadcasts>
 <teams>
-    <team id="magenta-team" color="light purple" max="8" max-overfill="10">Magenta</team>
-    <team id="cyan-team" color="dark aqua" max="8" max-overfill="10">Cyan</team>
-    <team id="lime-team" color="green" max="8" max-overfill="10">Lime</team>
-    <team id="orange-team" color="gold" max="8" max-overfill="10">Orange</team>
+    <team id="magenta-team" color="light purple" max="7" max-overfill="9">Magenta</team>
+    <team id="cyan-team" color="dark aqua" max="7" max-overfill="9">Cyan</team>
+    <team id="lime-team" color="green" max="7" max-overfill="9">Lime</team>
+    <team id="orange-team" color="gold" max="7" max-overfill="9">Orange</team>
 </teams>
 <spawns>
 	<spawn team="magenta-team" kit="magenta-kit" yaw="-45">
@@ -196,21 +196,16 @@
 	<apply block="never" region="team-spawns" message="You may not modify the spawn!"/>
 	
 	<!--Misc-->
-	<apply block-place="deny-void" message="You may not modify blocks in the void!">
+	<apply block-place="deny-void-and-wool" message="You may not modify blocks in the void nor place safeties!">
 		<region>
 			<everywhere/>
 		</region>
 	</apply>
-	<apply block="no-spawners" message="You may not break the spawners!">
+	<apply block-break="no-spawners" message="You may not break the spawners!">
 		<region>
 			<everywhere/>
 		</region>
-	</apply>	
-	<apply block="no-wool-safeties" message="No safeties allowed!">
-		<region>
-			<everywhere/>
-		</region>
-	</apply>	
+	</apply>		
 </regions>
 <filters>
 	<!--Team Filters-->
@@ -247,16 +242,15 @@
   	</all>
 	
 	<!--Other Filters-->
-	<not id="deny-void">
-		<void/>
+	<not id="deny-void-and-wool">
+		<any>
+			<void/>
+			<material>wool</material>	
+		</any>
 	</not>
 	<not id="no-spawners">
 		<material>mob spawner</material>
 	</not>
-	<not id="no-wool-safeties">
-		<material>wool</material>
-	</not>
-
 </filters>
 <wools team="magenta-team">
 	<wool color="cyan" location="-370.5,16,-1417.5">
@@ -467,8 +461,9 @@
 	<item>leather helmet</item>
 	<item>leather leggings</item>
 	<item>golden carrot</item>
+	<item>wool</item>
 </itemremove>
 <!--Misc-->
 <maxbuildheight>24</maxbuildheight>
-<respawn delay="3s" auto="true"/>
+<respawn delay="4s" blackout="true" auto="true"/>
 </map>
