@@ -1,8 +1,7 @@
 <map proto="1.4.3">
 <name>Tiki Valley</name>
 <version>1.0</version>
-<objective>Get the most points by the end of the game!</objective>
-<time>12m</time>
+<objective>Control the center point to capture the enemy flag!</objective>
 <score>
 	<limit>3</limit>
 	<kills>0</kills>
