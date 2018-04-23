@@ -80,13 +80,13 @@
 <control-points incremental="true">
 	<control-point id="mid" name="Mid" capture-time="6s" points="0" required="false">
 		<capture-region>
-			<cuboid min="-18,20,13" max="-13,22,8"/>
+			<cuboid min="-18,20,13" max="-13,23,8"/>
 		</capture-region>
 		<progress-display-region>
-			<cuboid min="-18,20,13" max="-13,22,8"/>
+			<cuboid min="-18,20,13" max="-13,23,8"/>
 		</progress-display-region>
 		<owner-display-region>
-			<cuboid min="-18,20,13" max="-13,22,8"/>
+			<cuboid min="-18,20,13" max="-13,23,8"/>
 			<cuboid min="-20,18,28" max="-21,19,29"/>
 			<cuboid min="-18,18,38" max="-21,19,39"/>
 			<cuboid min="-11,18,-7" max="-10,19,-8"/>
