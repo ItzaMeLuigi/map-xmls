@@ -243,63 +243,6 @@
 <killreward>
 	<item>arrow</item>
 </killreward>
-<!-- Flags-->
-<flags>
-    <post id="red-west-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">-18,21,71</post>
-    <post id="red-east-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">22,21,71</post>
-    <post id="blue-west-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
-    <post id="blue-east-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
-    <flag id="red-west-flag" name="West Flag" color="red" post="red-west-post" locked="true" required="true">
-		<capture-filter>
-			<all>
-				<team>blue-team</team>
-				<captured team="blue-team">west-point</captured>
-			</all>
-		</capture-filter>
-	</flag>
-    <flag id="red-east-flag" name="East Flag" color="red" post="red-east-post" locked="true" required="true">
-		<capture-filter>
-			<all>
-				<team>blue-team</team>
-				<captured team="blue-team">east-point</captured>
-			</all>
-		</capture-filter>
-	</flag>	
-    <flag id="blue-west-flag" name="West Flag" color="blue" post="blue-west-post" locked="true" required="true">
-		<capture-filter>
-			<all>
-				<team>red-team</team>
-				<captured team="red-team">west-point</captured>
-			</all>
-		</capture-filter>
-	</flag>	
-    <flag id="blue-east-flag" name="East Flag" color="blue" post="blue-east-post" locked="true" required="true">
-		<capture-filter>
-			<all>
-				<team>red-team</team>
-				<captured team="red-team">east-point</captured>
-			</all>
-		</capture-filter>
-	</flag>		
-    <net owner="blue-team" flags="red-west-flag red-east-flag" deny-message="Capture the flag side's point first!">
-        <region>
-            <cuboid min="4,11,174" max="1,13,177"/>
-        </region>
-    </net>
-    <net owner="red-team" flags="blue-west-flag blue-east-flag" deny-message="Capture the flag side's point first!">
-        <region>
-            <cuboid min="1,11,77" max="4,13,74"/>
-        </region>
-    </net>
-</flags>
-<item-mods>
-    <rule>
-        <match>
-            <material>banner</material>
-        </match>
-        <modify locked="true"/>
-    </rule>
-</item-mods>
 <!--Points-->
 <control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
 <control-point id="east-point" name="East Point" capture-time="5s" points="0">
@@ -327,6 +270,63 @@
 	</owner-display-region>
 </control-point>
 </control-points>
+<!-- Flags-->
+<flags>
+    <post id="red-west-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">-18,21,71</post>
+    <post id="red-east-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">22,21,71</post>
+    <post id="blue-west-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
+    <post id="blue-east-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
+    <flag id="red-west-flag" owner="red-team" name="West Flag" color="red" post="red-west-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">west-point</captured>
+			</all>
+		</capture-filter>
+	</flag>
+    <flag id="red-east-flag" owner="red-team" name="East Flag" color="red" post="red-east-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">east-point</captured>
+			</all>
+		</capture-filter>
+	</flag>	
+    <flag id="blue-west-flag" owner="blue-team" name="West Flag" color="blue" post="blue-west-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>red-team</team>
+				<captured team="red-team">west-point</captured>
+			</all>
+		</capture-filter>
+	</flag>	
+    <flag id="blue-east-flag" owner="blue-team" name="East Flag" color="blue" post="blue-east-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>red-team</team>
+				<captured team="red-team">east-point</captured>
+			</all>
+		</capture-filter>
+	</flag>		
+    <net owner="blue-team" flags="red-west-flag red-east-flag" deny-message="Capture the flag side's point first!">
+        <region>
+            <cuboid min="4,11,174" max="1,13,177"/>
+        </region>
+    </net>
+    <net owner="red-team" flags="blue-west-flag blue-east-flag" deny-message="Capture the flag side's point first!">
+        <region>
+            <cuboid min="1,11,77" max="4,13,74"/>
+        </region>
+    </net>
+</flags>
+<item-mods>
+    <rule>
+        <match>
+            <material>banner</material>
+        </match>
+        <modify locked="true"/>
+    </rule>
+</item-mods>
 <!--Miscs-->
 <beacons>
 	<beacon location="-17.5,0,125.5" particle-count="100" visibility-filter="west-not-capped" />
