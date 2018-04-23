@@ -274,7 +274,7 @@
 <flags>
     <post id="red-west-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">-18,21,71</post>
     <post id="red-east-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">22,21,71</post>
-    <post id="blue-west-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
+    <post id="blue-west-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">-18,21,179</post>
     <post id="blue-east-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
     <flag id="red-west-flag" owner="red-team" name="West Flag" color="red" post="red-west-post" locked="true" required="true">
 		<capture-filter>
