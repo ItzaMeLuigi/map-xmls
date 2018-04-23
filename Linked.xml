@@ -1,0 +1,347 @@
+<map proto="1.4.3">
+<name>Linked</name>
+<version>1.0</version>
+<objective>Control the points to capture both enemies flags!</objective>
+<authors>
+		<author uuid="bbfac3db-dd46-4996-b936-0e2432f33285"/><!-- Valky-->
+		<author uuid="ffffec3a-728a-485a-af6e-374e86883939"/><!-- Jeremy_Wade-->
+		<author uuid="be280357-73fe-465c-a342-2bf0357327c4"/><!-- Naatz-->	
+</authors>
+<contributors>
+	<contributor contribution="WE help">Obelistics</contributor>
+</contributors>
+<teams>
+	<team id="red-team" color="dark red" max="14" max-overfill="16">Red</team>
+	<team id="blue-team" color="blue" max="14" max-overfill="16">Blue</team>
+</teams>
+<broadcasts>
+	<tip after="2s" every="60s">Capped points activate advanced spawns!</tip>
+</broadcasts>
+<gamemode>ctf</gamemode>
+<gamemode>rage</gamemode>
+<respawn delay="3s" auto="false"/>
+<kits>
+<kit id="spawn" potion-particles="false">
+	<item slot="0" unbreakable="true" enchantment="damage all:10">stone sword</item>
+	<item slot="1" unbreakable="true" enchantment="arrow damage:10">bow</item>
+	<item slot="8" amount="2">arrow</item>
+	<potion duration="4" amplifier="4">heal</potion>
+	<potion duration="4" amplifier="4">damage resistance</potion>
+	<potion duration="oo">night vision</potion>
+	<potion duration="3" amplifier="15">damage resistance</potion> 	
+	<leggings enchantment="protection projectile:1" damage="-3000" unbreakable="true">iron leggings</leggings>
+</kit>
+<kit id="red" parents="spawn">
+	<helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+	<chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+	<boots color="cd0000" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="blue" parents="spawn">
+	<helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+	<chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+	<boots color="0066cc" unbreakable="true">leather boots</boots>
+</kit>
+<kit id="obs" potion-particles="false">
+	<potion duration="oo">night vision</potion>
+</kit>
+</kits>
+<regions>
+	<!-- Jumppads-->
+	<union id="low-jumppadseast">
+		<cuboid id="redeastpad" min="17,3,89" max="14,4.5,92" />	
+		<cuboid id="blueeastpad" min="17,3,162" max="14,4.5,159" />			
+	</union>
+	<union id="low-jumppadswest">
+		<cuboid id="redwestpad" min="-12,3,89" max="-9,4.5,92" />	
+		<cuboid id="bluewestpad" min="-12,3,159" max="-9,4.5,162" />			
+	</union>
+	<union id="bluehigh-jumppads">
+		<cuboid id="bluemideastpad" min="24,10,143" max="21,11.5,146" />
+		<cuboid id="bluemidmidpad" min="4,10,140" max="1,11.5,143" />
+		<cuboid id="bluemidwestpad" min="-16,10,143" max="-19,11.5,146" />
+		<cuboid id="bluemonueastpad" min="15,9,174" max="12,10.5,177" />		
+		<cuboid id="bluemonuwestpad" min="-7,9,174" max="-10,10.5,177" />
+		<cuboid id="bluespawneastpad" min="24,9,187" max="21,10.5,190" />
+		<cuboid id="bluespawnwestpad" min="-16,9,187" max="-19,10.5,190" />		
+	</union>
+	<union id="redhigh-jumppads">
+		<cuboid id="redmideastpad" min="21,10,108" max="24,11.5,105" />
+		<cuboid id="redmidmidpad" min="1,10,111" max="4,11.5,108" />
+		<cuboid id="redmidwestpad" min="-19,10,108" max="-16,11.5,105" />
+		<cuboid id="redmonueastpad" min="12,9,77" max="15,10.5,74" />		
+		<cuboid id="redmonuwestpad" min="-10,9,77" max="-7,10.5,74" />
+		<cuboid id="redspawneastpad" min="21,9,64" max="24,10.5,61" />
+		<cuboid id="redspawnwestpad" min="-19,9,64" max="-16,10.5,61" />		
+	</union>
+	<union id="mid-jumppads">
+		<cuboid id="mideastpad" min="33,1,124" max="30,2.5,127" />
+		<cuboid id="midwestpad" min="-25,1,124" max="-28,2.5,127" />		
+	</union>	
+	<cuboid id="redfrontpad" min="4,11,92" max="1,12,93"/>
+	<cuboid id="bluefrontpad" min="1,11,159" max="4,12,158"/>
+	<union id="blueflagpads">
+		<cuboid id="rightblueflagpad" min="-16,21,152" max="-19,22,153"/>
+		<cuboid id="leftblueflagpad" min="24,21,152" max="21,22,153"/>		
+	</union>
+	<union id="redflagpads">
+		<cuboid id="rightredflagpad" min="21,21,99" max="24,22,98"/>
+		<cuboid id="leftredflagpad" min="-19,21,99" max="-16,22,98"/>		
+	</union>		
+	<!--Block Apply-->
+	<apply block="never" message="You may not break/place blocks here!">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>
+	<!--Jumppads-->
+	<apply region="low-jumppadseast" velocity="-0.5,1.2,0.0" />	
+	<apply region="low-jumppadswest" velocity="0.5,1.2,0.0" />
+	<apply region="bluehigh-jumppads" velocity="0.0,1.5,0.0" />	
+	<apply region="redhigh-jumppads" velocity="0.0,1.5,0.0" />	
+	<apply region="mid-jumppads" velocity="0.0,1.5,0.0" />	
+	<apply region="redfrontpad" velocity="0,0.5,2.5" />
+	<apply region="bluefrontpad" velocity="0,0.5,-2.5" />	
+	<apply region="blueflagpads" velocity="0,0.5,4"/>
+	<apply region="redflagpads" velocity="0,0.5,-4"/>	
+	<!--Beacon Apply-->
+	<apply use="no-beacons">
+		<rectangle min="-oo,-oo" max="oo,oo"/>
+	</apply>		
+</regions>
+<spawns>
+<spawn team="red-team" kit="red">
+	<regions yaw="0">
+		<cylinder base="2.5,15,33.5" radius="0.5" height="0.5"/>
+	</regions>	
+</spawn>
+<spawn team="blue-team" kit="blue">
+	<regions yaw="180">
+		<cylinder base="2.5,15,217.5" radius="0.5" height="0.5"/>
+	</regions >
+</spawn>
+<default kit="obs">
+	<regions yaw="180">
+		<cuboid min="3.5,48,124.5" max="1.5,48,126.5"/>
+	</regions>
+</default>
+</spawns>
+<filters>
+    <team id="only-blue">blue-team</team>
+    <team id="only-red">red-team</team>
+	<!--Portal Filters-->
+	<all id="blueWestPortal">
+        <captured team="blue-team">west-point</captured>
+        <not>
+            <any>
+                <captured>east-point</captured>
+            </any>
+        </not>
+    </all>
+
+	<all id="blueEastPortal">
+        <captured team="blue-team">east-point</captured>
+        <not>
+            <any>
+                <captured>west-point</captured>
+            </any>
+        </not>
+    </all>
+	
+	<all id="blueAllPortal">
+        <captured team="blue-team">west-point</captured>
+        <captured team="blue-team">east-point</captured>
+    </all>	
+	
+	<all id="redWestPortal">
+        <captured team="red-team">west-point</captured>
+        <not>
+            <any>
+                <captured>east-point</captured>
+            </any>
+        </not>
+    </all>
+
+	<all id="redEastPortal">
+        <captured team="red-team">east-point</captured>
+        <not>
+            <any>
+                <captured>west-point</captured>
+            </any>
+        </not>
+    </all>
+	
+	<all id="redAllPortal">
+        <captured team="red-team">west-point</captured>
+        <captured team="red-team">east-point</captured>
+    </all>	
+	
+	<not id="west-not-capped">
+		<any>
+			<captured team="red-team">west-point</captured>
+			<captured team="blue-team">west-point</captured>			
+		</any>
+	</not>
+	
+	<not id="east-not-capped">
+		<any>
+			<captured team="red-team">east-point</captured>
+			<captured team="blue-team">east-point</captured>			
+		</any>
+	</not>	
+	
+	<!--Disable Beacons-->
+	<all id="no-beacons">
+		<not>
+			<material>beacon</material>
+		</not>
+	</all>
+</filters>
+<portals>
+    <!-- Red Portals -->
+    <portal x="@-20" y="@4" z="@88" yaw="@0" filter="redWestPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    <portal x="@25" y="@4" z="@88" yaw="@0" filter="redEastPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    <portal x="@2.5" y="@10" z="@85.5" yaw="@0" filter="redAllPortal">
+        <region>
+            <cuboid min="0,9,31" max="5,11,36"/>
+        </region>
+    </portal>
+    
+    <!-- Blue Portals -->
+    <portal x="@-20" y="@4" z="@163" yaw="@180" filter="blueWestPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+    <portal x="@25" y="@4" z="@163" yaw="@180" filter="blueEastPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+    <portal x="@2.5" y="@10" z="@165.5" yaw="@180" filter="blueAllPortal">
+        <region>
+            <cuboid min="5,9,220" max="0,11,215"/>
+        </region>
+    </portal>
+</portals>
+<!--Itemremovals+Killrewards-->
+<itemremove>
+	<item>arrow</item>
+	<item>golden apple</item>
+	<item>leather helmet</item>
+	<item>leather chestplate</item>
+	<item>iron leggings</item>
+	<item>leather boots</item>
+	<item>ender stone</item>
+	<item>sandstone</item>
+</itemremove>
+<killreward>
+	<item>arrow</item>
+</killreward>
+<!-- Flags-->
+<flags>
+    <post id="red-west-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">-18,21,71</post>
+    <post id="red-east-post" owner="red-team" pickup-filter="only-blue" recover-time="11s" respawn-time="7s" permanent="true" yaw="0">22,21,71</post>
+    <post id="blue-west-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
+    <post id="blue-east-post" owner="blue-team" pickup-filter="only-red" recover-time="11s" respawn-time="7s" permanent="true" yaw="180">22,21,179</post>
+    <flag id="red-west-flag" name="West Flag" color="red" post="red-west-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">west-point</captured>
+			</all>
+		</capture-filter>
+	</flag>
+    <flag id="red-east-flag" name="East Flag" color="red" post="red-east-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>blue-team</team>
+				<captured team="blue-team">east-point</captured>
+			</all>
+		</capture-filter>
+	</flag>	
+    <flag id="blue-west-flag" name="West Flag" color="blue" post="blue-west-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>red-team</team>
+				<captured team="red-team">west-point</captured>
+			</all>
+		</capture-filter>
+	</flag>	
+    <flag id="blue-east-flag" name="East Flag" color="blue" post="blue-east-post" locked="true" required="true">
+		<capture-filter>
+			<all>
+				<team>red-team</team>
+				<captured team="red-team">east-point</captured>
+			</all>
+		</capture-filter>
+	</flag>		
+    <net owner="blue-team" flags="red-west-flag red-east-flag" deny-message="Capture the flag side's point first!">
+        <region>
+            <cuboid min="4,11,174" max="1,13,177"/>
+        </region>
+    </net>
+    <net owner="red-team" flags="blue-west-flag blue-east-flag" deny-message="Capture the flag side's point first!">
+        <region>
+            <cuboid min="1,11,77" max="4,13,74"/>
+        </region>
+    </net>
+</flags>
+<item-mods>
+    <rule>
+        <match>
+            <material>banner</material>
+        </match>
+        <modify locked="true"/>
+    </rule>
+</item-mods>
+<!--Points-->
+<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.5" required="false">
+<control-point id="east-point" name="East Point" capture-time="5s" points="0">
+	<capture-region>
+		<cuboid min="27,0,130" max="18,2,121"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="27,0,130" max="18,2,121"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="16,0,119" max="37,32,132"/>
+		<cuboid min="22,33,125" max="23,32,126"/>		
+	</owner-display-region>
+</control-point>
+<control-point id="west-point" name="West Point" capture-time="5s" points="0">
+	<capture-region>
+		<cuboid min="-22,0,121" max="-13,2,130"/>
+	</capture-region>
+	<progress-display-region>
+		<cuboid min="-22,0,121" max="-13,2,130"/>
+	</progress-display-region>
+	<owner-display-region>
+		<cuboid min="-32,0,119" max="-11,32,132"/>
+		<cuboid min="-18,33,126" max="-17,32,125"/>				
+	</owner-display-region>
+</control-point>
+</control-points>
+<!--Miscs-->
+<beacons>
+	<beacon location="-17.5,0,125.5" particle-count="100" visibility-filter="west-not-capped" />
+	<beacon location="-17.5,0,125.5" particle-count="100" visibility-filter="redWestPortal" color="red"/>
+	<beacon location="-17.5,0,125.5" particle-count="100" visibility-filter="blueWestPortal" color="blue"/>	
+	
+	<beacon location="22.5,0,125.5" particle-count="100" visibility-filter="east-not-capped" />
+	<beacon location="22.5,0,125.5" particle-count="100" visibility-filter="redEastPortal" color="red"/>
+	<beacon location="22.5,0,125.5" particle-count="100" visibility-filter="blueEastPortal" color="blue"/>	
+</beacons>	
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+	<damage>fall</damage>
+</disabledamage>
+<rage/>
+</map>
