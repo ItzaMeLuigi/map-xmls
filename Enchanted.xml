@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.4.2">
 <name>Enchanted</name>
-<version>1.4.2</version>
+<version>1.4.3</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
@@ -57,8 +57,8 @@
 		<item slot="0" unbreakable="true">stone sword</item>
 		<item slot="1" enchantment="arrow infinite:1">bow</item>
 		<item slot="28">arrow</item>
-		<item slot="2">iron pickaxe</item>
-		<item slot="3">iron axe</item>
+		<item slot="2" enchantment="durability:3;dig speed:2">iron pickaxe</item>
+		<item slot="3" enchantment="durability:3;dig speed:1">iron axe</item>
 		<item slot="8" amount="64">golden carrot</item>
 		<chestplate unbreakable="true">iron chestplate</chestplate>
 		<boots unbreakable="true">iron boots</boots>
@@ -126,8 +126,8 @@
 			<item slot="5" amount="12" damage="5">stained glass</item>
 		</maybe>
 		<maybe filter="time-20">
-			<item slot="4" amount="32" damage="3">stained clay</item>
-			<item slot="5" amount="14" damage="9">stained glass</item>
+			<item slot="4" amount="32" damage="5">stained clay</item>
+			<item slot="5" amount="14" damage="5">stained glass</item>
 		</maybe>
 	</kit>
 	<kit id="orange-kit" parents="master-kit">
@@ -341,7 +341,7 @@
 		<kit force="true">
 			<helmet unbreakable="true" lore="`5Reward for a Killstreak of `b10">iron helmet</helmet>		
 		</kit>
-		<item enchantment="durability:3" lore="`5Reward for a Killstreak of `b10">diamond pickaxe</item>			
+		<item enchantment="durability:3;dig speed:1" lore="`5Reward for a Killstreak of `b10">diamond pickaxe</item>			
 	</kill-reward>
 	
 	<kill-reward>
@@ -359,7 +359,7 @@
 			<kill-streak count="20"/>
 		</filter>
 		<item unbreakable="true" lore="`5Reward for a Killstreak of `b20">iron sword</item>
-		<item enchantment="durability:3;dig speed:1" lore="`5Reward for a Killstreak of `b20">diamond pickaxe</item>
+		<item enchantment="durability:3;dig speed:2" lore="`5Reward for a Killstreak of `b20">diamond pickaxe</item>
 	</kill-reward>	
 	
 	<kill-reward>
@@ -376,7 +376,7 @@
 			<kill-streak count="30"/>
 		</filter>
 		<item unbreakable="true" enchantment="arrow infinite:1;arrow damage:2" material="bow" lore="`5Reward for a Killstreak of `b30"/>
-		<item enchantment="durability:3;dig speed:2" lore="`5Reward for a Killstreak of `b30">diamond pickaxe</item>		
+		<item enchantment="durability:3;dig speed:3" lore="`5Reward for a Killstreak of `b30">diamond pickaxe</item>		
 	</kill-reward>	
 
 	<kill-reward>
@@ -392,7 +392,7 @@
 		<filter>
 			<kill-streak count="40"/>
 		</filter>
-		<item enchantment="durability:3;dig speed:3" lore="`5Reward for a Killstreak of `b40">diamond pickaxe</item>	
+		<item enchantment="durability:3;dig speed:4" lore="`5Reward for a Killstreak of `b40">diamond pickaxe</item>	
 	</kill-reward>
 	
 	<kill-reward>
