@@ -18,7 +18,6 @@
 	<tip after="2s" every="60s">Capped points activate advanced spawns!</tip>
 </broadcasts>
 <gamemode>ctf</gamemode>
-<gamemode>rage</gamemode>
 <respawn delay="3s" auto="false"/>
 <kits>
 <kit id="spawn" potion-particles="false">
@@ -99,8 +98,8 @@
 	<apply region="mid-jumppads" velocity="0.0,1.5,0.0" />	
 	<apply region="redfrontpad" velocity="0,0.5,2.5" />
 	<apply region="bluefrontpad" velocity="0,0.5,-2.5" />	
-	<apply region="blueflagpads" velocity="0,0.5,4"/>
-	<apply region="redflagpads" velocity="0,0.5,-4"/>	
+	<apply region="blueflagpads" velocity="0,0.5,3.5"/>
+	<apply region="redflagpads" velocity="0,0.5,-3.5"/>	
 	<!--Beacon Apply-->
 	<apply use="no-beacons">
 		<rectangle min="-oo,-oo" max="oo,oo"/>
