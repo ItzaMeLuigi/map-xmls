@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <map proto="1.4.2">
 <name>Enchanted</name>
-<version>1.4.3</version>
+<version>1.5</version>
 <objective>Capture the enemy team's wools.</objective>
 <gamemode>CTW</gamemode>
 <authors>
@@ -65,91 +65,91 @@
 		<potion duration="3" amplifier="15">damage resistance</potion>
 	</kit>
 	<kit id="magenta-kit" parents="master-kit">
-		<item slot="4" amount="16" damage="2">stained clay</item>
-		<item slot="5" amount="8" damage="2">stained glass</item>
+		<item slot="4" amount="12" damage="2">stained clay</item>
+		<item slot="5" amount="3" damage="2">stained glass</item>
 		<helmet unbreakable="true" color="B404AE">leather helmet</helmet>
 		<leggings unbreakable="true" color="B404AE">leather leggings</leggings>
-		<maybe filter="time-5">
+		<maybe filter="time-10">
+		    <item slot="4" amount="16" damage="2">stained clay</item>
+			<item slot="5" amount="4" damage="2">stained glass</item>
+		</maybe>
+		<maybe filter="time-20">
 		    <item slot="4" amount="20" damage="2">stained clay</item>
 			<item slot="5" amount="8" damage="2">stained glass</item>
 		</maybe>
-		<maybe filter="time-10">
+		<maybe filter="time-30">
 		    <item slot="4" amount="24" damage="2">stained clay</item>
 			<item slot="5" amount="10" damage="2">stained glass</item>
 		</maybe>
-		<maybe filter="time-15">
-		    <item slot="4" amount="28" damage="2">stained clay</item>
-			<item slot="5" amount="12" damage="2">stained glass</item>
-		</maybe>
-		<maybe filter="time-20">
+		<maybe filter="time-60">
 			<item slot="4" amount="32" damage="2">stained clay</item>
-			<item slot="5" amount="14" damage="2">stained glass</item>
+			<item slot="5" amount="12" damage="2">stained glass</item>
 		</maybe>
 	</kit>
 	<kit id="cyan-kit" parents="master-kit">
-		<item slot="4" amount="16" damage="3">stained clay</item>
-		<item slot="5" amount="8" damage="9">stained glass</item>
+		<item slot="4" amount="12" damage="3">stained clay</item>
+		<item slot="5" amount="3" damage="9">stained glass</item>
 		<helmet unbreakable="true" color="088A85">leather helmet</helmet>
 		<leggings unbreakable="true" color="088A85">leather leggings</leggings>
-		<maybe filter="time-5">
+		<maybe filter="time-10">
+		    <item slot="4" amount="16" damage="3">stained clay</item>
+			<item slot="5" amount="4" damage="9">stained glass</item>
+		</maybe>
+		<maybe filter="time-20">
 		    <item slot="4" amount="20" damage="3">stained clay</item>
 			<item slot="5" amount="8" damage="9">stained glass</item>
 		</maybe>
-		<maybe filter="time-10">
+		<maybe filter="time-30">
 		    <item slot="4" amount="24" damage="3">stained clay</item>
 			<item slot="5" amount="10" damage="9">stained glass</item>
 		</maybe>
-		<maybe filter="time-15">
-		    <item slot="4" amount="28" damage="3">stained clay</item>
-			<item slot="5" amount="12" damage="9">stained glass</item>
-		</maybe>
-		<maybe filter="time-20">
+		<maybe filter="time-60">
 			<item slot="4" amount="32" damage="3">stained clay</item>
-			<item slot="5" amount="14" damage="9">stained glass</item>
+			<item slot="5" amount="12" damage="9">stained glass</item>
 		</maybe>
 	</kit>
 		<kit id="lime-kit" parents="master-kit">
-		<item slot="4" amount="16" damage="5">stained clay</item>
-		<item slot="5" amount="8" damage="5">stained glass</item>
+		<item slot="4" amount="12" damage="5">stained clay</item>
+		<item slot="5" amount="3" damage="5">stained glass</item>
 		<helmet unbreakable="true" color="01DF01">leather helmet</helmet>
 		<leggings unbreakable="true" color="01DF01">leather leggings</leggings>
-		<maybe filter="time-5">
+		<maybe filter="time-10">
+		    <item slot="4" amount="16" damage="5">stained clay</item>
+			<item slot="5" amount="4" damage="5">stained glass</item>
+		</maybe>
+		<maybe filter="time-20">
 		    <item slot="4" amount="20" damage="5">stained clay</item>
 			<item slot="5" amount="8" damage="5">stained glass</item>
 		</maybe>
-		<maybe filter="time-10">
+		<maybe filter="time-30">
 		    <item slot="4" amount="24" damage="5">stained clay</item>
 			<item slot="5" amount="10" damage="5">stained glass</item>
 		</maybe>
-		<maybe filter="time-15">
-		    <item slot="4" amount="28" damage="5">stained clay</item>
-			<item slot="5" amount="12" damage="5">stained glass</item>
-		</maybe>
-		<maybe filter="time-20">
+		<maybe filter="time-60">
 			<item slot="4" amount="32" damage="5">stained clay</item>
-			<item slot="5" amount="14" damage="5">stained glass</item>
+			<item slot="5" amount="12" damage="5">stained glass</item>
 		</maybe>
 	</kit>
 	<kit id="orange-kit" parents="master-kit">
-		<item slot="4" amount="16" damage="1">stained clay</item>
-		<item slot="5" amount="8" damage="1">stained glass</item>
+		<item slot="4" amount="12" damage="1">stained clay</item>
+		<item slot="5" amount="3" damage="1">stained glass</item>
 		<helmet unbreakable="true" color="D87F33">leather helmet</helmet>
 		<leggings unbreakable="true" color="D87F33">leather leggings</leggings>
-		<maybe filter="time-5">
-		    <item slot="4" amount="20" damage="1">stained clay</item>
-			<item slot="5" amount="10" damage="1">stained glass</item>
-		</maybe>
 		<maybe filter="time-10">
-		    <item slot="4" amount="24" damage="1">stained clay</item>
-			<item slot="5" amount="12" damage="1">stained glass</item>
-		</maybe>
-		<maybe filter="time-15">
-		    <item slot="4" amount="28" damage="1">stained clay</item>
-			<item slot="5" amount="14" damage="1">stained glass</item>
+		    <item slot="4" amount="16" damage="1">stained clay</item>
+			<item slot="5" amount="4" damage="1">stained glass</item>
 		</maybe>
 		<maybe filter="time-20">
+		    <item slot="4" amount="20" damage="1">stained clay</item>
+			<item slot="5" amount="8" damage="1">stained glass</item>
+		</maybe>
+		<maybe filter="time-30">
+		    <item slot="4" amount="24" damage="1">stained clay</item>
+			<item slot="5" amount="10" damage="1">stained glass</item>
+		</maybe>
+		<maybe filter="time-60">
 			<item slot="4" amount="32" damage="1">stained clay</item>
-			<item slot="5" amount="16" damage="1">stained glass</item>
+			<item slot="5" amount="12" damage="1">stained glass</item>
 		</maybe>
 	</kit>
 	<kit id="wool-gear" force="true">
@@ -227,17 +227,17 @@
 	<team id="only-orange">orange-team</team>
 	
 	<!-- Spawnkit Filters -->
-	<all id="time-5">
-  		  <time>5s</time>
-  	</all>
-  	<all id="time-10">
-  		  <time>10s</time>
-  	</all>
-  	<all id="time-15">
-  		  <time>15s</time>
+	<all id="time-10">
+  		  <time>10m</time>
   	</all>
   	<all id="time-20">
-  		  <time>20s</time>
+  		  <time>20m</time>
+  	</all>
+  	<all id="time-30">
+  		  <time>30m</time>
+  	</all>
+  	<all id="time-60">
+  		  <time>60m</time>
   	</all>
 	
 	<!--Other Filters-->
