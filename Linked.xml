@@ -87,7 +87,7 @@
 		<cuboid id="leftredflagpad" min="-19,21,99" max="-16,22,98"/>		
 	</union>		
 	<!--Block Apply-->
-	<apply block="never" message="You may not break/place blocks here!">
+	<apply block="never">
 		<rectangle min="-oo,-oo" max="oo,oo"/>
 	</apply>
 	<!--Jumppads-->
@@ -307,12 +307,12 @@
 			</all>
 		</capture-filter>
 	</flag>		
-    <net owner="blue-team" flags="red-west-flag red-east-flag" deny-message="Capture the flag side's point first!">
+    <net owner="blue-team" flags="red-west-flag red-east-flag" deny-message="Capture the flag side's point first!" points="1">
         <region>
             <cuboid min="4,11,174" max="1,13,177"/>
         </region>
     </net>
-    <net owner="red-team" flags="blue-west-flag blue-east-flag" deny-message="Capture the flag side's point first!">
+    <net owner="red-team" flags="blue-west-flag blue-east-flag" deny-message="Capture the flag side's point first!" points="1">
         <region>
             <cuboid min="1,11,77" max="4,13,74"/>
         </region>
@@ -343,4 +343,8 @@
 	<damage>fall</damage>
 </disabledamage>
 <rage/>
+<score>
+	<kills>0</kills>
+	<limit>2</limit>
+</score>
 </map>
