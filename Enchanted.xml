@@ -452,6 +452,7 @@
 	<item>leather helmet</item>
 	<item>leather leggings</item>
 	<item>golden carrot</item>
+	<item>diamond chestplate</item>
 </itemremove>
 <!--Misc-->
 <maxbuildheight>24</maxbuildheight>
