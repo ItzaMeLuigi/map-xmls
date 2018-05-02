@@ -1,6 +1,6 @@
 <map proto="1.4.3">
 <name>Tiki Valley</name>
-<version>1.0</version>
+<version>1.0.1</version>
 <objective>Control the center point to capture the enemy flag!</objective>
 <score>
 	<limit>3</limit>
@@ -69,6 +69,18 @@
 	</not>
 	<captured id="red-capped-mid" team="red-team">mid</captured>
 	<captured id="blue-capped-mid" team="blue-team">mid</captured>
+	<all id="only-blue-mid">
+		<not>
+			<team>red-team</team>
+		</not>
+		<captured team="blue-team">mid</captured>	
+	</all>
+	<all id="only-red-mid">
+		<not>
+			<team>blue-team</team>
+		</not>
+		<captured team="red-team">mid</captured>	
+	</all>	
 </filters>
 <regions>
     <apply block="never">
@@ -95,8 +107,8 @@
 	</control-point>
 </control-points>
 <flags>
-    <post id="red-post" pickup-filter="only-blue" recover-time="12s" respawn-time="5s" yaw="-90">14,26,10</post>
-    <post id="blue-post" pickup-filter="only-red" recover-time="12s" respawn-time="5s" yaw="90">-46,26,10</post>
+    <post id="red-post" pickup-filter="only-blue-mid" recover-time="12s" respawn-time="5s" yaw="-90">14,26,10</post>
+    <post id="blue-post" pickup-filter="only-red-mid" recover-time="12s" respawn-time="5s" yaw="90">-46,26,10</post>
     <flag id="red-flag" owner="red-team" required="false" name="Red Flag" color="red" post="red-post" carry-kit="flag-kit" locked="true">
 		<capture-filter>
 			<all>
